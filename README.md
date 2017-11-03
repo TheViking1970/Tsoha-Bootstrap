@@ -2,9 +2,9 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://tolander.cs.helsinki.fi/tsoha/)
+* [Linkki sovellukseeni](https://tolander.users.cs.helsinki.fi/tsoha/)
 * [Linkki Git-Hub](https://www.github.com/TheViking1970/Tsoha-Bootstrap)
-* [Linkki dokumentaationi](http://tolander.users.helsinki.fi/docs/TSOHA-doc.pdf)
+* [Linkki dokumentaationi](http://tolander.users.cs.helsinki.fi/docs/TSOHA-doc.pdf)
 
 ## Työn aihe
 
