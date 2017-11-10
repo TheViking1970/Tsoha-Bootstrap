@@ -10,12 +10,12 @@ Yleisiä linkkejä:
 (toki sivuston linkit toimivat, mutta näyttävät vain staattista tietoa)
 Tässä kuitenkin muutama suora linkki eri sivuille:
 * [Linkki etusivu](https://tolander.users.cs.helsinki.fi/tsoha/)
-* [Linkki listaus tietokoneista](https://tolander.users.cs.helsinki.fi/tsoha/computers-list)
-* [Linkki tietokoneen näyttösivu](https://tolander.users.cs.helsinki.fi/computer-view/)
-* [Linkki tietokoneen muokkaussivu](https://tolander.users.cs.helsinki.fi/computer-edit/)
-* [Linkki listaus käyttäjistä](https://tolander.users.cs.helsinki.fi/users-list/)
-* [Linkki profiilisivu](https://tolander.users.cs.helsinki.fi/user-view/)
-* [Linkki profiilin editointisivu](https://tolander.users.cs.helsinki.fi/profile-edit/)
+* [Linkki listaus tietokoneista](https://tolander.users.cs.helsinki.fi/tsoha/computers_list)
+* [Linkki tietokoneen näyttösivu](https://tolander.users.cs.helsinki.fi/computer_view/)
+* [Linkki tietokoneen muokkaussivu](https://tolander.users.cs.helsinki.fi/computer_edit/)
+* [Linkki listaus käyttäjistä](https://tolander.users.cs.helsinki.fi/users_list/)
+* [Linkki profiilisivu](https://tolander.users.cs.helsinki.fi/user_view/)
+* [Linkki profiilin editointisivu](https://tolander.users.cs.helsinki.fi/profile_edit/)
 * [Linkki rekisteröintisivu](https://tolander.users.cs.helsinki.fi/register)
 * [Linkki kirjautumissivu](https://tolander.users.cs.helsinki.fi/tsoha/login)
 
