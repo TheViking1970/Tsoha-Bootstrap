@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h1>Listing of registered users in the Wiki</h1>
+
+<table class="listing">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Date joined</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>		
+			<td><a href="{{base_path}}/user_view">Tom</a></td>
+			<td>10.11.2017</td>
+		</tr>
+		<tr>		
+			<td><a href="{{base_path}}/user_view">Tom</a></td>
+			<td>10.11.2017</td>
+		</tr>
+		<tr>		
+			<td><a href="{{base_path}}/user_view">Tom</a></td>
+			<td>10.11.2017</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock %}

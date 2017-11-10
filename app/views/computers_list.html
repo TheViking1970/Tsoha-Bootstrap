@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h1>Listing of computers in the Wiki</h1>
+
+<table class="listing">
+	<thead>
+		<tr>
+			<th>Computer</th>
+			<th>Date added</th>
+			<th>by user</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>		
+			<td><a href="{{base_path}}/computer_view">Commodore 64</a></td>
+			<td>10.11.2017</td>
+			<td><a href="{{base_path}}/user_view/1">Tom</a></td>
+		</tr>
+		<tr>		
+			<td><a href="{{base_path}}/computer_view">Commodore Amiga 1000</a></td>
+			<td>10.11.2017</td>
+			<td><a href="{{base_path}}/user_view/1">Tom</a></td>
+		</tr>
+		<tr>		
+			<td><a href="{{base_path}}/computer_view">Commodore Amiga 500</a></td>
+			<td>10.11.2017</td>
+			<td><a href="{{base_path}}/user_view">Tom</a></td>
+		</tr>
+	</tbody>
+</table>
+
+
+{% endblock %}

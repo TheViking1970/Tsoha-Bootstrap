@@ -1,0 +1,48 @@
+{% extends "index.html" %}
+{% block content %}
+
+<a href="{{base_path}}/profile_edit" class="floatRight btn btn-primary" role="button">EDIT</a>
+
+<h1>User: Tom</h1>
+<p>Joined 10.11.2017</p>
+
+<p class="clearAll">
+	Motto of life:
+	1. There is only one god.
+	2. I AM YOUR GOD, you shall not have other gods.
+	3. Goto 1.
+</p>
+
+<h2>Added computers</h2>
+<p class="clearAll">
+	<table class="listing">
+		<tr>
+			<td>10.11.2017</td>
+			<td><a href="{{base_path}}/computer_view">Commodore 64</a></td>
+		</tr>
+		<tr>
+			<td>10.11.2017</td>
+			<td><a href="{{base_path}}/computer_view">Commodore Amiga 500</a></td>
+		</tr>
+	</table>
+</p>
+
+<h2>Reviews</h2>
+<p class="clearAll">
+	<table class="listing">
+		<tr>
+			<td>10.11.2017</td>
+			<td>5</td>
+			<td><a href="{{base_path}}/computer_view">Commodore 64</a></td>
+			<td>Best computer ever!</td>
+		</tr>
+		<tr>
+			<td>10.11.2017</td>
+			<td>5</td>
+			<td><a href="{{base_path}}/computer_view">Commodore Amiga 500</a></td>
+			<td>MC68k + Copper + Blitter = Rulez!</td>
+		</tr>
+	</table>
+</p>
+
+{% endblock %}

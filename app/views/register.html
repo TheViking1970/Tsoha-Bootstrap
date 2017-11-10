@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h1>Register to the Virtual Computermuseum Wiki</h1>
+
+<h2>Hello there! We are happy to get you as a user to our Wiki.</h2>
+
+<p class="clearAll">
+	<table class="listing">
+		<tr>
+			<td>Name:</td>
+			<td><input type="text" name="name" /></td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td><input type="password" name="pass1" /></td>
+		</tr>
+		<tr>
+			<td>Retype passsword:</td>
+			<td><input type="password" name="pass2" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="SUBMIT"></td>
+		</tr>
+	</table>
+</p>
+
+{% endblock %}

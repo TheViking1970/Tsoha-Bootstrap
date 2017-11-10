@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h1>Edit profile: <span class="smaller">Tom</span></h1>
+<p>Joined 10.11.2017</p>
+
+<table class="listing">
+	<tr>
+		<td>Name:</td>
+		<td><input type="text" name="name" value="Tom"></td>
+	</tr>
+	<tr>
+		<td>Motto:</td>
+		<td><textarea name="motto">
+Motto of life:
+1. There is only one god.
+2. I AM YOUR GOD, you shall not have other gods.
+3. Goto 1.
+		</textarea></td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td><input type="password" name="pass1" /></td>
+	</tr>
+	<tr>
+		<td>Retype password:</td>
+		<td><input type="password" name="pass2" /></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" value="SUBMIT" /></td>
+	</tr>
+</table>
+
+{% endblock %}

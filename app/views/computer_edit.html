@@ -1,0 +1,39 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h1>Edit computer: <span class="smaller">Commodore Amiga 500</span></h1>
+
+<table class="listing">
+	<tr>
+		<td>Brand:</td>
+		<td><input type="text" name="brand" value="Commodore"></td>
+	</tr>
+	<tr>
+		<td>Computer:</td>
+		<td><input type="text" name="brand" value="Amiga 500"></td>
+	</tr>
+	<tr>
+		<td>Image URL:</td>
+		<td><input type="text" name="imgurl" value="http://oldcomputers.net/pics/amiga500.jpg"></td>
+	</tr>
+	<tr>
+		<td style="vertical-align: top">Text:</td>
+		<td><textarea rows="20" name="text">
+The Amiga 500 can be considered as a cost-reduced version of the original Amiga 1000 computer, which was released two years earlier in 1985. 
+
+The A1000 was an attractive, two-piece desktop model, while the A500 is a smaller, one-piece "wedge", but still comparable in operation and capability. 
+
+The powerful multi-tasking operating system of the Amiga line of computers, as well as their advanced multi-processor design, easily eclipsed the capabilities of the Atari 520ST, it's main rival. The A500 turned-out to be the most popular Amiga model ever sold, due in part to the many high-quality games released by third-party developers. 
+
+The low-end nature of the A500 precluded any internal expansion slots or built-in hard drive support, but a single "trapdoor" expansion slot is accessible on the bottom of the console, utilized mostly to increase the system RAM. 
+
+A more capable Amiga 2000 was released at about the same time - this high-end system incorporated internal expansions slots and front-panel expansion bays, among other improvements. 
+		</textarea></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" value="SUBMIT"></td>
+	</tr>
+</table>
+
+{% endblock %}
