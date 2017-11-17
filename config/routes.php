@@ -12,20 +12,28 @@
     VirtualMuseumController::computers_list();
   });
 
-  $routes->get('/computer_view', function() {
-    VirtualMuseumController::computer_view();
+  $routes->get('/computer_view/:id', function($id) {
+    VirtualMuseumController::computer_view($id);
   });
 
-  $routes->get('/computer_edit', function() {
-    VirtualMuseumController::computer_edit();
+  $routes->get('/computer_edit/:id', function($id) {
+    VirtualMuseumController::computer_edit($id);
+  });
+
+  $routes->get('/computer_add', function() {
+    VirtualMuseumController::computer_add();
+  });
+
+  $routes->post('/do_computer_add', function() {
+    VirtualMuseumController::do_computer_add();
   });
 
   $routes->get('/users_list', function() {
     VirtualMuseumController::users_list();
   });
 
-  $routes->get('/user_view', function() {
-    VirtualMuseumController::user_view();
+  $routes->get('/user_view/:id', function($id) {
+    VirtualMuseumController::user_view($id);
   });
 
   $routes->get('/review_add', function() {
@@ -52,7 +60,10 @@
     VirtualMuseumController::profile_edit();
   });
 
+  $routes->get('/thank_you', function() {
+    VirtualMuseumController::thank_you();
+  });
 
   $routes->get('/hiekkalaatikko', function() {
-    VirtualMuseumController::sandbox();
+    HelloWorldController::sandbox();
   });

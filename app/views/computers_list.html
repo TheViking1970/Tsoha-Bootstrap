@@ -3,6 +3,10 @@
 
 <h1>Listing of computers in the Wiki</h1>
 
+<h3 class="warning">Not yet complete...</h3>
+
+<a href="{{base_path}}/computer_add" class="floatRight btn btn-primary" role="button">ADD</a>
+
 <table class="listing">
 	<thead>
 		<tr>
@@ -12,21 +16,13 @@
 		</tr>
 	</thead>
 	<tbody>
+		{% for comp in computers %}
 		<tr>		
-			<td><a href="{{base_path}}/computer_view">Commodore 64</a></td>
+			<td><a href="{{base_path}}/computer_view/{{comp.id}}">{{comp.brand}} {{comp.name}}</a></td>
 			<td>10.11.2017</td>
 			<td><a href="{{base_path}}/user_view/1">Tom</a></td>
 		</tr>
-		<tr>		
-			<td><a href="{{base_path}}/computer_view">Commodore Amiga 1000</a></td>
-			<td>10.11.2017</td>
-			<td><a href="{{base_path}}/user_view/1">Tom</a></td>
-		</tr>
-		<tr>		
-			<td><a href="{{base_path}}/computer_view">Commodore Amiga 500</a></td>
-			<td>10.11.2017</td>
-			<td><a href="{{base_path}}/user_view">Tom</a></td>
-		</tr>
+		{% endfor %}
 	</tbody>
 </table>
 

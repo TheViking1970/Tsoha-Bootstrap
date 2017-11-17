@@ -1,9 +1,7 @@
 {% extends "index.html" %}
 {% block content %}
 
-<h1>Edit computer: <span class="smaller">{{computer.brand}} {{computer.name}}</span></h1>
-
-<form method="POST" action="{{base_path}}/computer_edit/{{computer.id}}">
+<form method="post" action="{{base_path}}/do_computer_add">
 <table class="listing">
 	<tr>
 		<td>Brand:</td>
@@ -11,7 +9,7 @@
 	</tr>
 	<tr>
 		<td>Computer:</td>
-		<td><input type="text" name="brand" value="{{computer.name}}"></td>
+		<td><input type="text" name="name" value="{{computer.name}}"></td>
 	</tr>
 	<tr>
 		<td>Image URL:</td>
