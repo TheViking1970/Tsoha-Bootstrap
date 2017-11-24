@@ -83,6 +83,10 @@
 		}
 
 		public function update() {
+			$errorCount = $this->validate();
+			if($errorCount!=0) {
+				return $this->errors;
+			}
 			$query = DB::connection()->prepare(
 				"UPDATE Computers SET brand=:brand, name=:name, imgurl=:imgurl, infotext=:infotext WHERE id=:id"
 			);
