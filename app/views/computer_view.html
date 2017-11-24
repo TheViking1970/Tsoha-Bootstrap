@@ -1,7 +1,20 @@
 {% extends "index.html" %}
 {% block content %}
 
-<a href="{{base_path}}/computer_edit/{{computer.id}}" class="floatRight btn btn-primary" role="button">EDIT</a>
+{% if error == 'deleteError' %}
+<h2 class="text-danger bg-danger">An error occured. The computer was NOT deleted!</h2>
+{% endif %}
+{% if error == 'notfoundError' %}
+<h2 class="text-danger bg-danger">Computer not found. The computer was NOT deleted! (or it might already be deleted)</h2>
+{% endif %}
+
+{% if user_logged_in %}
+<div class="floatRight">
+	<a href="{{base_path}}/computer_edit/{{computer.id}}" class="floatRight btn btn-primary" role="button">EDIT</a><br/>
+	<br class="clearAll"/>
+	<a href="{{base_path}}/computer_delete/{{computer.id}}" class="floatRight btn btn-warning" role="button">DELETE</a><br/>
+</div>
+{% endif %}
 
 <h1>{{computer.brand}} {{computer.name}}</h1>
 <p>Added {{user.datum}} by <a href="{{base_path}}/user_view/{{user.id}}">{{user.name}}</a></p>

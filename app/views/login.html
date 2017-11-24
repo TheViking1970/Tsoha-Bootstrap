@@ -3,7 +3,11 @@
 
 <h1>Login to the Virtual Computermuseum Wiki</h1>
 
-<p class="clearAll">
+{% if error == 'loginError' %}
+<h2 class="text-danger bg-danger">An error occured. You are NOT logged into the system!</h2>
+{% endif %}
+
+<form method="post" action="{{base_path}}/login">
 	<table class="listing">
 		<tr>
 			<td>Name:</td>
@@ -11,13 +15,14 @@
 		</tr>
 		<tr>
 			<td>Password:</td>
-			<td><input type="password" name="pass1" /></td>
+			<td><input type="password" name="password" /></td>
 		</tr>
 		<tr>
 			<td></td>
 			<td><input type="submit" value="SUBMIT"></td>
 		</tr>
 	</table>
-</p>
+</form>
+
 
 {% endblock %}

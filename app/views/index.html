@@ -19,15 +19,16 @@
       <link href="{{base_path}}/assets/css/site.css" rel="stylesheet">
     {% endblock %}
     <style>
+      #wrapper {margin: 0 auto; width: 960px;}
       .center {margin: 0 auto; text-align: center;}
       .floatLeft {float: left;}
       .floatRight {float: right;}
       .clearAll {clear: both;}
       .block {display: block;}
-      #wrapper {margin: 0 auto; width: 960px;}
       .listing th, .listing td {padding: 2px 10px;}
       .listing input[type="text"], .listing input[type="password"], .listing textarea {width: 600px;}
       .smaller {font-size: 0.75em;}
+      td {vertical-align: top;}
     </style>
   </head>
 
@@ -52,9 +53,13 @@
             <!-- Navigaation linkit -->
             <li><a href="{{base_path}}/computers_list">Computers</a></li>
             <li><a href="{{base_path}}/users_list">Users</a></li>
+            {% if user_logged_in == false %}
             <li><a href="{{base_path}}/register">Register</a></li>
-            <li><a href="{{base_path}}/login">Login</a></li>
+            <li><a href="{{base_path}}/login">LOGIN</a></li>
+            {% endif %}
+            {% if user_logged_in %}<li><a href="{{base_path}}/logout">LOGOUT</a></li>{% endif %}
           </ul>
+          {% if user_logged_in %}<span class="floatRight" style="padding: 10px 10px 0 0">Current user: <a href="{{base_path}}/user_view/{{user_logged_in.id}}">{{user_logged_in.name}}</a></span>{% endif %}
         </div>
       </div>
     </nav>

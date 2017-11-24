@@ -3,8 +3,18 @@
 
 <h1>Thank you!</h1>
 
-{% if message.reason == 1 %}
+{% if reason == 'addComputer' %}
 <p>Computer added to the system.</p>
+{% endif %}
+{% if reason == 'ediComputer' %}
+<p>Computer edited.</p>
+{% endif %}
+{% if reason == 'deleteComputer' %}
+<p>Computer deleted from the system.</p>
+{% endif %}
+{% if reason == 'logout' %}
+<p>User logged out.</p>
+<p>Please visit us again.</p>
 {% endif %}
 
 {% endblock %}

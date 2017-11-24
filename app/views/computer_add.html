@@ -1,29 +1,46 @@
 {% extends "index.html" %}
 {% block content %}
 
-<form method="post" action="{{base_path}}/do_computer_add">
-<table class="listing">
-	<tr>
-		<td>Brand:</td>
-		<td><input type="text" name="brand" value="{{computer.brand}}"></td>
-	</tr>
-	<tr>
-		<td>Computer:</td>
-		<td><input type="text" name="name" value="{{computer.name}}"></td>
-	</tr>
-	<tr>
-		<td>Image URL:</td>
-		<td><input type="text" name="imgurl" value="{{computer.imgurl}}"></td>
-	</tr>
-	<tr>
-		<td style="vertical-align: top">Text:</td>
-		<td><textarea rows="20" name="infotext">{{computer.infotext}}</textarea></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td><input type="submit" value="SUBMIT"></td>
-	</tr>
-</table>
+{% if mode == 'add' %}
+<h1>Add a Computer</h1>
+{% endif %}
+{% if mode == 'edit' %}
+<h1>Edit computer: <span class="smaller">{{computer.brand}} {{computer.name}}</span></h1>
+{% endif %}
+
+{% if error.errors > 0 %}
+<h2 class="text-danger bg-danger">Some error (or errors) in the submitted data!</h2>
+<p>Correct errors and resubmit!</p>
+{% endif %}
+
+<form method="post" action="{{base_path}}/do_computer_{{mode}}{% if mode == 'edit' %}/{{computer.id}}{% endif %}">
+	<table class="listing">
+		<tr {% if error.brand == 1 %}class="text-danger bg-warning"{% endif %}>
+			<td>Brand:</td>
+			<td><input type="text" name="brand" value="{{computer.brand}}"></td>
+			<td class="smaller">-- min 3 char</td>
+		</tr>
+		<tr {% if error.name == 1 %}class="text-danger bg-warning"{% endif %}>
+			<td>Computer:</td>
+			<td><input type="text" name="name" value="{{computer.name}}"></td>
+			<td class="smaller">-- min 1 char</td>
+		</tr>
+		<t {% if error.imgurl == 1 %}class="text-danger bg-warning"{% endif %}r>
+			<td>Image URL:</td>
+			<td><input type="text" name="imgurl" value="{{computer.imgurl}}"></td>
+			<td class="smaller"></td>
+		</tr>
+		<tr {% if error.infotext == 1 %}class="text-danger bg-warning"{% endif %}>
+			<td>Text:</td>
+			<td><textarea rows="20" name="infotext">{{computer.infotext}}</textarea></td>
+			<td class="smaller">-- min 50 char</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="SUBMIT"></td>
+			<td></td>
+		</tr>
+	</table>
 </form>
 
 {% endblock %}

@@ -6,9 +6,12 @@ Yleisiä linkkejä:
 * [Linkki Git-Hub](https://www.github.com/TheViking1970/Tsoha-Bootstrap)
 * [Linkki dokumentaationi](http://tolander.users.cs.helsinki.fi/tsoha/doc/dokumentaatio.pdf)
 
-Viikko3:
-- Jotain ongelmia tietokoneiden lisäämisessä tietokantaan vielä.
-- viikon tehtävät on tehty tietokannalle Computers ja siihen liittyville kooditiedostoille, muut pitää vielä laittaa kuntoon.
+## Sisäänkirjautuminen
+Testauskäytössä voi käyttää seuraavat tiedot:
+- Käyttäjä: Dani
+- Salasana: 1234
+
+Tällä hetkellä ei käytetä vielä kryptattuja salasanoja, muta lopullisessa versiossa ne titenkin ovat mukana kuvioissa.
 
 
 ## Linkkejä stattiisille HTML-sivuille 

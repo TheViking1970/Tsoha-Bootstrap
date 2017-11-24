@@ -5,7 +5,9 @@
 
 <h3 class="warning">Not yet complete...</h3>
 
+{% if user_logged_in %}
 <a href="{{base_path}}/computer_add" class="floatRight btn btn-primary" role="button">ADD</a>
+{% endif %}
 
 <table class="listing">
 	<thead>
@@ -19,8 +21,8 @@
 		{% for comp in computers %}
 		<tr>		
 			<td><a href="{{base_path}}/computer_view/{{comp.id}}">{{comp.brand}} {{comp.name}}</a></td>
-			<td>10.11.2017</td>
-			<td><a href="{{base_path}}/user_view/1">Tom</a></td>
+			<td>{{computer.datum}}</td>
+			<td><a href="{{base_path}}/user_view/{{computer.uid}}">{{computer.uname}}</a></td>
 		</tr>
 		{% endfor %}
 	</tbody>

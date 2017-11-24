@@ -28,6 +28,14 @@
     VirtualMuseumController::do_computer_add();
   });
 
+  $routes->post('/do_computer_edit/:id', function($id) {
+    VirtualMuseumController::do_computer_edit($id);
+  });
+
+  $routes->get('/computer_delete/:id', function($id) {
+    VirtualMuseumController::computer_delete($id);
+  });
+
   $routes->get('/users_list', function() {
     VirtualMuseumController::users_list();
   });
@@ -46,6 +54,10 @@
 
   $routes->get('/login', function() {
     VirtualMuseumController::login();
+  });
+
+  $routes->post('/login', function() {
+    VirtualMuseumController::do_login();
   });
 
   $routes->get('/logout', function() {

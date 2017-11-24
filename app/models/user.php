@@ -32,7 +32,7 @@
 			$rows = $query->fetchAll();
 			$returnArray = array();
 			foreach($rows as $row) {
-				$returnArray[] = new User(array(
+				$user = new User(array(
 					'id'		=> $row['id'],
 					'name'		=> $row['name'],
 					'password'	=> $row['password'],
@@ -40,7 +40,7 @@
 					'datum'		=> $row['datum']
 				));
 			}
-			return $returnArray;
+			return $user;
 		}
 		
 		public static function save($attrArray){
@@ -51,19 +51,37 @@
 			$query->execute($attrArray);
 		}
 
+		public static function login($username, $password) {
+			$id=0;
+			$query = DB::connection()->prepare(
+				"SELECT * FROM Users WHERE LOWER(name)=LOWER(:name) AND password=:password LIMIT 1"
+			);
+			$query->execute(array('name' => $username, 'password' => $password));
+			$rows = $query->fetchAll();
+			foreach($rows as $row) {
+				if($row['id']) {
+					$id = $row['id'];
+				}
+			}
+			if($id) {$_SESSION['userId'] = $id;}
+			return $id?0:1; // if no id ==> ERROR=1 !!
+		}
+
+
 		public static function getAdderofComputer($id){
 			$query = DB::connection()->prepare(
 				"SELECT Users.id AS id, Users.name AS name, Logs.datum AS datum FROM Users, Logs WHERE Logs.comp_id=:id AND Users.id=Logs.user_id ORDER BY Logs.id ASC LIMIT 1"
 			);
 			$query->execute(array('id' => $id));
-			$rows = $query->fetchAll();
-			$returnArray = array();
-			foreach($rows as $row) {
+			$row = $query->fetch();
+			if($row) {
 				$return = new User(array(
 					'id'		=> $row['id'],
 					'name'		=> $row['name'],
 					'datum'		=> $row['datum']
 				));
+			} else {
+				$return = new User(array());
 			}
 			return $return;
 		}
