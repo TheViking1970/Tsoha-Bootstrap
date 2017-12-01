@@ -1,22 +1,22 @@
 {% extends "index.html" %}
 {% block content %}
 
-<h1>Edit profile: <span class="smaller">Tom</span></h1>
-<p>Joined 10.11.2017</p>
+<h1>Edit profile: <span class="smaller">{{user.name}}</span></h1>
+<p>Joined: {{user.datum}}</p>
 
+{% if error %}
+<h2 class="text-danger bg-danger">{{error}}</h2>
+{% endif %}
+
+<form method="post" action="{{base_path}}/do_profile_edit">
 <table class="listing">
 	<tr>
-		<td>Name:</td>
-		<td><input type="text" name="name" value="Tom"></td>
+		<td>Motto:</td>
+		<td><textarea name="motto">{{user.motto}}</textarea></td>
 	</tr>
 	<tr>
-		<td>Motto:</td>
-		<td><textarea name="motto">
-Motto of life:
-1. There is only one god.
-2. I AM YOUR GOD, you shall not have other gods.
-3. Goto 1.
-		</textarea></td>
+		<td></td>
+		<td>You can also change your password here, <b>otherwise leave empty</b>.</td>
 	</tr>
 	<tr>
 		<td>Password:</td>
@@ -31,5 +31,6 @@ Motto of life:
 		<td><input type="submit" value="SUBMIT" /></td>
 	</tr>
 </table>
+</form>
 
 {% endblock %}

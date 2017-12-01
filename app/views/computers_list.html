@@ -18,9 +18,9 @@
 		</tr>
 	</thead>
 	<tbody>
-		{% for comp in computers %}
+		{% for computer in computers %}
 		<tr>		
-			<td><a href="{{base_path}}/computer_view/{{comp.id}}">{{comp.brand}} {{comp.name}}</a></td>
+			<td><a href="{{base_path}}/computer_view/{{computer.id}}">{{computer.brand}} {{computer.name}}</a></td>
 			<td>{{computer.datum}}</td>
 			<td><a href="{{base_path}}/user_view/{{computer.uid}}">{{computer.uname}}</a></td>
 		</tr>

@@ -26,4 +26,8 @@
       return $errors;
     }
 
+    public static function formatDatum($datum) {
+      return substr($datum, 0, 10);
+    }
+
   }

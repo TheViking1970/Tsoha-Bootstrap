@@ -6,6 +6,9 @@
 {% if error == 'loginError' %}
 <h2 class="text-danger bg-danger">An error occured. You are NOT logged into the system!</h2>
 {% endif %}
+{% if reason == 'newUser' %}
+<h2 class="text-info bg-info">Your registration was successful. You can now login with your chosen username and password.</h2>
+{% endif %}
 
 <form method="post" action="{{base_path}}/login">
 	<table class="listing">

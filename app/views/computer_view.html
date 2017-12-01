@@ -10,17 +10,19 @@
 
 {% if user_logged_in %}
 <div class="floatRight">
-	<a href="{{base_path}}/computer_edit/{{computer.id}}" class="floatRight btn btn-primary" role="button">EDIT</a><br/>
-	<br class="clearAll"/>
-	<a href="{{base_path}}/computer_delete/{{computer.id}}" class="floatRight btn btn-warning" role="button">DELETE</a><br/>
+	<a href="{{base_path}}/review_add/{{computer.id}}" class="floatRight btn btn-primary marginLR" role="button">ADD REVIEW</a>
+	<a href="{{base_path}}/computer_edit/{{computer.id}}" class="floatRight btn btn-warning marginLR" role="button">EDIT</a>
+	<a href="{{base_path}}/computer_delete/{{computer.id}}" class="floatRight btn btn-danger marginLR" role="button">DELETE</a>
 </div>
 {% endif %}
 
 <h1>{{computer.brand}} {{computer.name}}</h1>
-<p>Added {{user.datum}} by <a href="{{base_path}}/user_view/{{user.id}}">{{user.name}}</a></p>
+<p>Added {{computer.datum}} by <a href="{{base_path}}/user_view/{{user.id}}">{{user.name}}</a></p>
 
 <p class="clearAll">
+	{% if computer.imgurl %}
 	<img src="{{computer.imgurl}}" class="floatRight" />
+	{% endif %}
 	{{computer.infotext}} 
 </p>
 
@@ -28,25 +30,33 @@
 
 <h2>Edits</h2>
 <p class="clearAll">
-	{% for edit in edits %}
-		{{edit.datum}} {{edit.username}}
+	{% if logs %}
+	{% for log in logs %}
+		{{log.datum}}&nbsp;<a href="{{base_path}}/user_view/{{log.user_id}}">{{log.user_name}}</a>.  
 	{% endfor %}
+	{% else %}
+	<p>No edits.</p>
+	{% endif %}
 </p>
 
 <hr class="clearAll">
 
 <h2>Reviews</h2>
 <p class="clearAll">
+	{% if reviews %}
 	<table class="listing">
 		{% for review in reviews %}
 		<tr>
-			<td>{{review.rating}}</td>
+			<td><img src="{{base_path}}/assets/img/{{review.rating}}-stars.png" alt="Rating: {{review.rating}}" class="ratingStars"/></td>
 			<td>{{review.datum}}</td>
-			<td><a href="{{base_path}}/user_view">{{review.username}}</a></td>
+			<td><a href="{{base_path}}/user_view/{{review.user_id}}">{{review.user_name}}</a></td>
 			<td>{{review.review}}</td>
 		</tr>
 		{% endfor %}
 	</table>
+	{% else %}
+	<p>No reviews yet.</p>
+	{% endif %}
 </p>
 
 {% endblock %}

@@ -11,18 +11,12 @@
 		</tr>
 	</thead>
 	<tbody>
+		{% for user in users %}
 		<tr>		
-			<td><a href="{{base_path}}/user_view">Tom</a></td>
-			<td>10.11.2017</td>
+			<td><a href="{{base_path}}/user_view/{{user.id}}">{{user.name}}</a></td>
+			<td>{{user.datum}}</td>
 		</tr>
-		<tr>		
-			<td><a href="{{base_path}}/user_view">Tom</a></td>
-			<td>10.11.2017</td>
-		</tr>
-		<tr>		
-			<td><a href="{{base_path}}/user_view">Tom</a></td>
-			<td>10.11.2017</td>
-		</tr>
+		{% endfor %}
 	</tbody>
 </table>
 

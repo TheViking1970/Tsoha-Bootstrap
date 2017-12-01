@@ -9,67 +9,75 @@
   });
 
   $routes->get('/computers_list', function() {
-    VirtualMuseumController::computers_list();
+    ComputersController::computers_list();
   });
 
   $routes->get('/computer_view/:id', function($id) {
-    VirtualMuseumController::computer_view($id);
+    ComputersController::computer_view($id);
   });
 
   $routes->get('/computer_edit/:id', function($id) {
-    VirtualMuseumController::computer_edit($id);
+    ComputersController::computer_edit($id);
   });
 
   $routes->get('/computer_add', function() {
-    VirtualMuseumController::computer_add();
+    ComputersController::computer_add();
   });
 
   $routes->post('/do_computer_add', function() {
-    VirtualMuseumController::do_computer_add();
+    ComputersController::do_computer_add();
   });
 
   $routes->post('/do_computer_edit/:id', function($id) {
-    VirtualMuseumController::do_computer_edit($id);
+    ComputersController::do_computer_edit($id);
   });
 
   $routes->get('/computer_delete/:id', function($id) {
-    VirtualMuseumController::computer_delete($id);
+    ComputersController::computer_delete($id);
   });
 
   $routes->get('/users_list', function() {
-    VirtualMuseumController::users_list();
+    UsersController::users_list();
   });
 
   $routes->get('/user_view/:id', function($id) {
-    VirtualMuseumController::user_view($id);
+    UsersController::user_view($id);
   });
 
   $routes->get('/review_add', function() {
-    VirtualMuseumController::review_add();
+    ReviewsController::review_add();
   });
 
   $routes->get('/register', function() {
-    VirtualMuseumController::register();
+    UsersController::register();
+  });
+
+  $routes->post('/register', function() {
+    UsersController::do_register();
   });
 
   $routes->get('/login', function() {
-    VirtualMuseumController::login();
+    UsersController::login();
   });
 
   $routes->post('/login', function() {
-    VirtualMuseumController::do_login();
+    UsersController::do_login();
   });
 
   $routes->get('/logout', function() {
-    VirtualMuseumController::logout();
+    UsersController::logout();
   });
 
   $routes->get('/profile', function() {
-    VirtualMuseumController::profile();
+    UsersController::profile();
   });
 
   $routes->get('/profile_edit', function() {
-    VirtualMuseumController::profile_edit();
+    UsersController::profile_edit();
+  });
+
+  $routes->post('/do_profile_edit', function() {
+    UsersController::do_profile_edit();
   });
 
   $routes->get('/thank_you', function() {

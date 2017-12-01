@@ -1,48 +1,49 @@
 {% extends "index.html" %}
 {% block content %}
 
+{% if ownprofile %}
 <a href="{{base_path}}/profile_edit" class="floatRight btn btn-primary" role="button">EDIT</a>
+{% endif %}
 
-<h1>User: Tom</h1>
-<p>Joined 10.11.2017</p>
+<h1>User: {{user.name}}</h1>
+<p>Joined {{user.datum}}</p>
 
 <p class="clearAll">
-	Motto of life:
-	1. There is only one god.
-	2. I AM YOUR GOD, you shall not have other gods.
-	3. Goto 1.
+{{user.motto}}
 </p>
 
 <h2>Added computers</h2>
 <p class="clearAll">
+	{% if logs %}
 	<table class="listing">
+		{% for log in logs %}
 		<tr>
-			<td>10.11.2017</td>
-			<td><a href="{{base_path}}/computer_view">Commodore 64</a></td>
+			<td>{{log.datum}}</td>
+			<td><a href="{{base_path}}/computer_view/{{log.comp_id}}">{{log.comp_brand}} {{log.comp_name}}</a></td>
 		</tr>
-		<tr>
-			<td>10.11.2017</td>
-			<td><a href="{{base_path}}/computer_view">Commodore Amiga 500</a></td>
-		</tr>
+		{% endfor %}
 	</table>
+	{% else %}
+	<p>No computers added yet.</p>
+	{% endif %}
 </p>
 
 <h2>Reviews</h2>
 <p class="clearAll">
+	{% if reviews %}
 	<table class="listing">
+		{% for review in reviews %}
 		<tr>
-			<td>10.11.2017</td>
-			<td>5</td>
-			<td><a href="{{base_path}}/computer_view">Commodore 64</a></td>
-			<td>Best computer ever!</td>
+			<td>{{review.datum}}</td>
+			<td><img src="{{base_path}}/assets/img/{{review.rating}}-stars.png" alt="Rating: {{review.rating}}" class="ratingStars"/></td>
+			<td><a href="{{base_path}}/computer_view/{{review.comp_id}}">{{review.comp_brand}} {{review.comp_name}}</a></td>
+			<td>{{review.review}}</td>
 		</tr>
-		<tr>
-			<td>10.11.2017</td>
-			<td>5</td>
-			<td><a href="{{base_path}}/computer_view">Commodore Amiga 500</a></td>
-			<td>MC68k + Copper + Blitter = Rulez!</td>
-		</tr>
+		{% endfor %}
 	</table>
+	{% else %}
+	<p>No reviews made yet.</p>
+	{% endif %}
 </p>
 
 {% endblock %}
