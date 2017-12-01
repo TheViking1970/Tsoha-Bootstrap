@@ -44,8 +44,8 @@
     UsersController::user_view($id);
   });
 
-  $routes->get('/review_add', function() {
-    ReviewsController::review_add();
+  $routes->get('/review_add/:id', function($id) {
+    ReviewsController::review_add($id);
   });
 
   $routes->get('/register', function() {
