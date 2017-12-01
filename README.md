@@ -11,12 +11,12 @@ Testauskäytössä voi käyttää seuraavat tiedot:
 - Käyttäjä: Dani
 - Salasana: 1234
 
-Tällä hetkellä ei käytetä vielä kryptattuja salasanoja, muta lopullisessa versiossa ne titenkin ovat mukana kuvioissa.
+HUOM! Mutta rekisteröityminen toimii, joten voi luoda omia käyttäjiä!
+
+Tällä hetkellä ei käytetä vielä kryptattuja salasanoja, muta lopullisessa versiossa ne tietenkin ovat mukana kuvioissa.
 
 
-## Linkkejä stattiisille HTML-sivuille 
-(toki sivuston linkit toimivat, mutta näyttävät vain staattista tietoa)
-Tässä kuitenkin muutama suora linkki eri sivuille:
+## Linkkejä HTML-sivuille 
 * [Linkki etusivu](https://tolander.users.cs.helsinki.fi/tsoha/)
 * [Linkki listaus tietokoneista](https://tolander.users.cs.helsinki.fi/tsoha/computers_list)
 * [Linkki tietokoneen näyttösivu](https://tolander.users.cs.helsinki.fi/tsoha/computer_view)
