@@ -146,17 +146,18 @@
 		 */
 		public function delete() {
 			// posta ensin kaikki lokitiedot liittyen tähän tietokoneeseen, koska Foreign Key!
+			/*
 			$query = DB::connection()->prepare(
 				"DELETE FROM Logs WHERE comp_id=:cid"
 			);
 			$query->execute(array('cid' => $this->id));
+			*/
 			// nyt voidaan poistaa itse tietokone
 			$query = DB::connection()->prepare(
 				"DELETE FROM Computers WHERE id=:id"
 			);
-			$query->execute(array('id' => $this->id));
-			$numRows = $query->fetch();
-			return $numRows?false:true; // jos ei poistettu riviä(-ejä), niin ERROR = 1
+			$error = $query->execute(array('id' => $this->id));
+			return !$error; 
 		}
 
 		/*

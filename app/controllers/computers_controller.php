@@ -10,7 +10,7 @@
       if($computers) {
         View::make("computers_list.html", array('computers'=>$computers));
       } else {
-        View::make("error.html", array('message'=>'No computers found!'));
+        Redirect::to('/error', array('message' => 'No computers found!'));
       }
     }
 
@@ -37,7 +37,7 @@
         $reviews = Review::findByComputer($id);
         View::make("computer_view.html", array('computer'=>$computer, 'user'=>$user, 'logs'=>$logs, 'reviews'=>$reviews, 'error'=>$error));//, 'reviews'=>$reviews));
       } else {
-        View::make("error.html", array('message'=>'Computer not found!'));
+        Redirect::to('/error', array('message' => 'Computer not found!'));
       }
     }
 
@@ -74,7 +74,7 @@
         View::make("computer_add.html", array('mode'=>'add', 'computer'=>$computer, 'error'=>$computer->errors));
       }
       else {
-        View::make("thank_you.html", array('reason'=>'addComputer'));
+        Redirect::to('/thank_you', array('reason' => 'addComputer'));
       }
     }
 
@@ -93,7 +93,7 @@
         View::make("computer_add.html", array('mode'=>'edit', 'computer'=>$computer, 'error'=>$computer->errors));
       }
       else {
-        View::make("thank_you.html", array('reason'=>'editComputer'));
+        Redirect::to('/thank_you', array('reason' => 'ediComputer'));
       }
     }
 
@@ -106,15 +106,15 @@
       self::check_logged_in();
       $computer = Computer::find($id);
       if(!$computer) {
-        self::computer_view($id, 'notfoundError');
+        Redirect::to('/computer_view/'.$id, array('reason' => 'notFoundError'));
         return;
       }
       $errors = $computer->delete();
       if($errors) {
-        self::computer_view($id, 'deleteError');
+        Redirect::to('/computer_view/'.$id, array('reason' => 'deleteComputer'));
         return;
       }
-      View::make("thank_you.html", array('reason'=>'deleteComputer'));
+      Redirect::to('/thank_you', array('reason' => 'deleteComputer'));
     }
 
     /*

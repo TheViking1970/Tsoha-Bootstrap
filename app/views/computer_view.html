@@ -10,9 +10,9 @@
 
 {% if user_logged_in %}
 <div class="floatRight">
-	<a href="{{base_path}}/review_add/{{computer.id}}" class="floatRight btn btn-primary marginLR" role="button">ADD REVIEW</a>
-	<a href="{{base_path}}/computer_edit/{{computer.id}}" class="floatRight btn btn-warning marginLR" role="button">EDIT</a>
-	<a href="{{base_path}}/computer_delete/{{computer.id}}" class="floatRight btn btn-danger marginLR" role="button">DELETE</a>
+	<a href="{{base_path}}/computer_delete/{{computer.id}}" class="btn btn-danger marginLR" role="button">DELETE</a>
+	<a href="{{base_path}}/computer_edit/{{computer.id}}" class="btn btn-warning marginLR" role="button">EDIT</a>
+	<a href="{{base_path}}/review_add/{{computer.id}}" class="btn btn-primary marginLR" role="button">ADD REVIEW</a>
 </div>
 {% endif %}
 

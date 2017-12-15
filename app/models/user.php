@@ -23,7 +23,7 @@
 	  	 */
 		public static function all(){
 			$query = DB::connection()->prepare(
-				"SELECT * FROM Users"
+				"SELECT id, name, datum FROM Users ORDER BY id ASC"
 			);
 			$query->execute();
 			$rows = $query->fetchAll();
@@ -108,6 +108,14 @@
 				'motto'	=> $this->motto,
 				'pass'	=> $this->password
 			));
+		}
+
+		public function delete() {
+			$query = DB::connection()->prepare(
+				"DELETE FROM Users WHERE id=:id"
+			);
+			$error = $query->execute(array('id' => $this->id));
+			return !$error; 
 		}
 
 		/*

@@ -2,7 +2,10 @@
 {% block content %}
 
 {% if ownprofile %}
-<a href="{{base_path}}/profile_edit" class="floatRight btn btn-primary" role="button">EDIT</a>
+<div class="floatRight">
+	<a href="{{base_path}}/profile_delete" class="btn btn-danger marginLR" role="button">DELETE</a>
+	<a href="{{base_path}}/profile_edit" class="btn btn-warning marginLR" role="button">EDIT</a>
+</div>
 {% endif %}
 
 <h1>User: {{user.name}}</h1>
@@ -12,7 +15,7 @@
 {{user.motto}}
 </p>
 
-<h2>Added computers</h2>
+<h2>Added and edited computers</h2>
 <p class="clearAll">
 	{% if logs %}
 	<table class="listing">
@@ -37,7 +40,7 @@
 			<td>{{review.datum}}</td>
 			<td><img src="{{base_path}}/assets/img/{{review.rating}}-stars.png" alt="Rating: {{review.rating}}" class="ratingStars"/></td>
 			<td><a href="{{base_path}}/computer_view/{{review.comp_id}}">{{review.comp_brand}} {{review.comp_name}}</a></td>
-			<td>{{review.review}}</td>
+			<td class="wrap">{{review.review}}</td>
 		</tr>
 		{% endfor %}
 	</table>

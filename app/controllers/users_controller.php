@@ -11,7 +11,7 @@
       if($users) {
         View::make("users_list.html", array('users'=>$users));
       } else {
-        View::make("error.html", array('message'=>'No Users found!'));
+        Redirect::to('/error', array('message' => 'No Users found!'));
       }
     }
 
@@ -34,7 +34,7 @@
         $reviews = Review::findByUser($id);
         View::make("user_view.html", array('user'=>$user, 'logs'=>$logs, 'reviews'=>$reviews, 'ownprofile'=>$ownprofile));
       } else {
-        View::make("error.html", array('message'=>'User not found!'));
+        Redirect::to('/error', array('message' => 'User not found!'));
       }
     }
 
@@ -61,7 +61,7 @@
         if($_POST['pass1'] == $_POST['pass2']) {
           $user = self::userFromPOST();
           $error = $user->add();
-          View::make("login.html", array('reason'=>'newUser'));
+          Redirect::to('/login', array('message' => 'newUser'));
         } else {
           View::make("register.html", array('error'=>'Passwords do not match!'));
         }
@@ -85,7 +85,7 @@
       if($errors) {
         View::make("login.html", array('error'=>'loginError'));
       } else {
-        View::make('home.html');
+        Redirect::to('/');
       }
     }
 
@@ -107,7 +107,26 @@
       if($user) {
         View::make("profile_edit.html", array('user'=>$user));
       } else {
-        View::make("error.html", array('message'=>'Profile not found!'));
+        Redirect::to('/error', array('message' => 'Profile not found!'));
+      }
+    }
+
+    /*
+     *  Poistetaan käyttäjä tietokannasta.
+     *  Jos kirjautunut käyttäjä ei enää löydy tietokannasta näytetään virheilmoitus.
+     */
+    public static function profile_delete(){
+      self::check_logged_in();
+      $user = User::find($_SESSION['userId']);
+      if($user) {
+        $errors = $user->delete();
+        if($errors) {
+          Redirect::to('/error', array('message' => 'An error occured while removing the user from the database!'));
+        } else {
+          Redirect::to('/thank_you', array('reason' => 'userDeleted'));
+        }
+      } else {
+        Redirect::to('/error', array('message' => 'Profile not found!'));
       }
     }
 

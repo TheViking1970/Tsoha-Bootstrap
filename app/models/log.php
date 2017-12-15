@@ -30,7 +30,7 @@
 	  	 */
 		public static function all(){
 			$query = DB::connection()->prepare(
-				"SELECT * FROM Logs"
+				"SELECT * FROM Logs ORDER BY id ASC"
 			);
 			$query->execute();
 			$rows = $query->fetchAll();

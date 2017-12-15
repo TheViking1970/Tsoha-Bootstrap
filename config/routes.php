@@ -48,6 +48,10 @@
     ReviewsController::review_add($id);
   });
 
+  $routes->post('/do_review_add/:id', function($id) {
+    ReviewsController::do_review_add($id);
+  });
+
   $routes->get('/register', function() {
     UsersController::register();
   });
@@ -78,6 +82,10 @@
 
   $routes->post('/do_profile_edit', function() {
     UsersController::do_profile_edit();
+  });
+
+  $routes->get('/profile_delete', function() {
+    UsersController::profile_delete();
   });
 
   $routes->get('/thank_you', function() {

@@ -16,8 +16,9 @@ td {vertical-align: top;}
 .floatRight {float: right;}
 .clearAll {clear: both;}
 .block {display: block;}
-.listing th, .listing td {padding: 2px 10px;}
+.listing th, .listing td {padding: 2px 10px; white-space: nowrap;}
 .listing input[type="text"], .listing input[type="password"], .listing textarea {width: 600px;}
+.listing .wrap {white-space: normal;}
 .smaller {font-size: 0.75em;}
 .marginLR {margin: 0 10px;}
 .paddingTR {padding: 10px 10px 0 0;}

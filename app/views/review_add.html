@@ -1,7 +1,41 @@
 {% extends "index.html" %}
 {% block content %}
 
-<h1>PAGE NOT YET IMPLEMENTED...</h1>
+<h1>Add Review for {{review.comp_brand}} {{review.comp_name}}</h1>
 
+{% if error.errors > 0 %}
+<h2 class="text-danger bg-danger">Some error (or errors) in the submitted data!</h2>
+<p>Correct errors and resubmit!</p>
+{% endif %}
+
+<form method="post" action="{{base_path}}/do_review_add/{{review.comp_id}}">
+	<input type="hidden" name="comp_id" value="{{review.comp_id}}"/>
+	<input type="hidden" name="comp_brand" value="{{review.comp_brand}}"/>
+	<input type="hidden" name="comp_name" value="{{review.comp_name}}"/>
+	<table class="listing">
+		<tr {% if error.rating == 1 %}class="text-danger bg-warning"{% endif %}>
+			<td>Rating:</td>
+			<td>
+				<select name ="rating">
+					<option value="1" {{review.rating==1?'selected'}}>1</option>
+					<option value="2" {{review.rating==2?'selected'}}>2</option>
+					<option value="3" {{review.rating==3?'selected'}}{{review.rating?'':'selected'}}>3</option>
+					<option value="4" {{review.rating==4?'selected'}}>4</option>
+					<option value="5" {{review.rating==5?'selected'}}>5</option>
+				</select>
+			</td>
+			<td></td>
+		</tr>
+		</tr>
+		<tr {% if error.review == 1 %}class="text-danger bg-warning"{% endif %}>
+			<td>Review</td>
+			<td><textarea name="review">{{review.review}}</textarea></td>
+			<td class="smaller">-- min 10 char</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input type="submit" value="SUBMIT"/>
+	</table>
+</form>
 
 {% endblock %}
